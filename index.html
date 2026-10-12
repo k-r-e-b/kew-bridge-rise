@@ -61,8 +61,8 @@
   .price { font-family: "Fraunces", serif; font-size: 40px; line-height: 1; }
   .price small { font-family: "Inter", sans-serif; font-size: 15px; color: var(--muted); margin-left: 4px; }
   .incl { font-size: 13px; color: var(--olive); background: var(--olive-soft); padding: 6px 12px; border-radius: 999px; font-weight: 500; }
-  .hero-photos { display: grid; grid-template-columns: 1.4fr 1fr; grid-template-rows: 1fr 1fr; gap: 12px; height: 580px; }
-  .hero-photos img { width: 100%; height: 100%; object-fit: cover; border-radius: var(--radius); cursor: zoom-in; }
+  .hero-photos { display: grid; grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr); grid-template-rows: repeat(2, minmax(0, 1fr)); gap: 12px; height: 580px; overflow: hidden; }
+  .hero-photos img { width: 100%; height: 100%; min-width: 0; min-height: 0; object-fit: cover; border-radius: var(--radius); cursor: zoom-in; }
   .hero-photos img:first-child { grid-row: span 2; }
 
   /* Facts strip */
@@ -110,6 +110,15 @@
   .feat ul { margin: 0; padding: 0; list-style: none; font-size: 15px; color: #d4dacb; }
   .feat li { padding: 5px 0 5px 18px; position: relative; }
   .feat li::before { content: ""; position: absolute; left: 0; top: 14px; width: 6px; height: 6px; border-radius: 50%; background: #d9bf8f; }
+
+  /* Amenities */
+  .amen-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; }
+  .amen { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 22px; }
+  .amen svg { color: var(--olive); margin-bottom: 14px; }
+  .amen h3 { font-size: 19px; margin-bottom: 6px; }
+  .amen p { margin: 0; font-size: 14px; color: var(--muted); }
+  .amen-photo { grid-column: span 2; grid-row: span 2; border-radius: var(--radius); overflow: hidden; min-height: 280px; cursor: zoom-in; }
+  .amen-photo img { width: 100%; height: 100%; object-fit: cover; }
 
   /* Floorplan */
   .plan-grid { display: grid; grid-template-columns: 1.3fr 1fr; gap: 48px; align-items: center; }
@@ -161,6 +170,7 @@
     .fact:nth-child(n+4) { border-top: 1px solid var(--line); }
     .gallery { grid-template-columns: repeat(2, 1fr); grid-auto-rows: 200px; }
     .feat-grid { grid-template-columns: 1fr; }
+    .amen-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
     section.block { padding: 60px 0; }
   }
   @media (max-width: 520px) {
@@ -174,6 +184,8 @@
     .gallery { grid-auto-rows: 160px; gap: 8px; }
     .gallery figure.wide { grid-column: span 2; }
     .bills { grid-template-columns: 1fr; }
+    .amen { padding: 18px; }
+    .amen-photo { min-height: 220px; grid-row: auto; }
     .lb .prev, .lb .next { top: auto; bottom: 60px; transform: none; }
   }
 </style>
@@ -186,6 +198,7 @@
     <ul>
       <li><a href="#about">The flat</a></li>
       <li><a href="#gallery">Photos</a></li>
+      <li><a href="#amenities">Amenities</a></li>
       <li><a href="#floorplan">Floor plan</a></li>
       <li><a href="#location">Location</a></li>
     </ul>
@@ -234,7 +247,7 @@
       <p class="quote" style="margin-top:12px">Olive velvet, warm brass, soft light, and views over the rooftops of West London.</p>
       <p>This one-bedroom apartment has been furnished with care. The open-plan living area has a deep velvet corner sofa that converts into a sofa bed, a marble-effect dining table with wishbone chairs for four, and full-height glass doors that open onto a private balcony.</p>
       <p>The kitchen comes with an integrated oven, microwave and induction hob, plus a coffee machine and everything you need to cook properly. The double bedroom has a boucle arched headboard, full-width mirrored wardrobes and its own door to the balcony.</p>
-      <p>The building is newly built and has a landscaped residents' courtyard garden. It is a few minutes' walk from Kew Bridge station, Kew Gardens and the Thames.</p>
+      <p>Kew Bridge Rise is a newly built development. Residents get a 24-hour concierge, a private gym, meeting rooms, a co-working space and landscaped podium gardens. Kew Bridge station is a two-minute walk away, and Kew Gardens and the Thames are nearby.</p>
     </div>
     <aside class="included">
       <h3>One weekly price. No extra bills.</h3>
@@ -330,10 +343,34 @@
         <h3>The building</h3>
         <ul>
           <li>Newly built development</li>
-          <li>Landscaped residents' courtyard</li>
+          <li>24-hour concierge &amp; parcel handling</li>
+          <li>Residents' gym, lounge &amp; meeting rooms</li>
           <li>Views across Brentford</li>
         </ul>
       </div>
+    </div>
+  </div>
+</section>
+
+<section class="block" id="amenities">
+  <div class="wrap">
+    <div class="section-head">
+      <div>
+        <div class="eyebrow">Kew Bridge Rise</div>
+        <h2>Residents' amenities</h2>
+      </div>
+      <p>Guests have the run of the building's shared facilities, so it feels more like a serviced apartment than a typical flat.</p>
+    </div>
+    <div class="amen-grid">
+      <div class="amen-photo" data-i="15"><img src="images/courtyard.jpg" alt="Landscaped residents' podium garden at Kew Bridge Rise" loading="lazy"></div>
+      <div class="amen"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M6 7v10M18 7v10M3 9v6M21 9v6M6 12h12"/></svg><h3>Residents' gym</h3><p>A private gym for residents, open 24 hours, with cardio machines, strength equipment and free weights.</p></div>
+      <div class="amen"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></svg><h3>24-hour concierge</h3><p>Staff on site day and night to welcome guests and take in parcels and deliveries.</p></div>
+      <div class="amen"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="12" rx="1.5"/><path d="M8 20h8M12 16v4"/></svg><h3>Private meeting rooms</h3><p>Book a room for calls, client meetings or focused work, without leaving the building.</p></div>
+      <div class="amen"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 18h16M6 18V9h12v9M9 9V6h6v3"/></svg><h3>Co-working space</h3><p>A shared workspace on site, ideal for remote and hybrid working.</p></div>
+      <div class="amen"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="12" rx="1.5"/><path d="m10 9 5 2-5 2z"/></svg><h3>Cinema room</h3><p>A private screening room for residents, perfect for a film night.</p></div>
+      <div class="amen"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12V9a3 3 0 0 1 3-3h10a3 3 0 0 1 3 3v3M3 12h18v5H3zM5 17v2M19 17v2"/></svg><h3>Residents' lounge</h3><p>A comfortable shared space to relax, read or meet friends.</p></div>
+      <div class="amen"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22V12M12 12c0-4 3-7 7-7 0 4-3 7-7 7zM12 15c0-3-2.5-5-6-5 0 3 2.5 5 6 5z"/></svg><h3>Podium gardens</h3><p>Landscaped gardens with lawns and planting, sheltered from the street.</p></div>
+      <div class="amen"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="17" r="3.5"/><circle cx="18" cy="17" r="3.5"/><path d="M6 17 9 9h6l3 8M9 9 7 6h3M12 17l3-8"/></svg><h3>Secure cycle storage</h3><p>Safe bike storage, handy for rides along the Thames towpath.</p></div>
     </div>
   </div>
 </section>
@@ -367,10 +404,11 @@
     <div class="loc-grid">
       <div>
         <div class="places">
-          <div class="place"><div><b>Kew Bridge station</b><small>South Western Railway to Waterloo</small></div><span class="t">~3 min walk</span></div>
-          <div class="place"><div><b>Gunnersbury station</b><small>District line &amp; Overground</small></div><span class="t">~15 min walk</span></div>
+          <div class="place"><div><b>Kew Bridge station</b><small>Direct trains to London Waterloo</small></div><span class="t">~2 min walk</span></div>
+          <div class="place"><div><b>Gunnersbury station</b><small>District line &amp; Overground</small></div><span class="t">~10 min walk</span></div>
           <div class="place"><div><b>Kew Gardens</b><small>Royal Botanic Gardens, UNESCO site</small></div><span class="t">~15 min walk</span></div>
           <div class="place"><div><b>Thames riverside &amp; Strand on the Green</b><small>Riverside pubs and walks</small></div><span class="t">~10 min walk</span></div>
+          <div class="place"><div><b>Chiswick House &amp; Gardens</b><small>65 acres of historic gardens; Chiswick High Road nearby</small></div><span class="t">~20 min walk</span></div>
           <div class="place"><div><b>Gtech Community Stadium</b><small>Brentford FC</small></div><span class="t">~2 min walk</span></div>
           <div class="place"><div><b>Heathrow Airport</b><small>By car or taxi</small></div><span class="t">~25 min</span></div>
         </div>
@@ -403,7 +441,8 @@
         <dt>Type</dt><dd>1-bed apartment, short let</dd>
         <dt>Sleeps</dt><dd>Up to 4 (double bed + sofa bed)</dd>
         <dt>Furnishing</dt><dd>Fully furnished</dd>
-        <dt>Outdoor</dt><dd>Private balcony + courtyard</dd>
+        <dt>Outdoor</dt><dd>Private balcony + podium gardens</dd>
+        <dt>Building</dt><dd>24h concierge, gym, meeting rooms</dd>
         <dt>Postcode</dt><dd>TW8 0XS</dd>
       </dl>
     </div>
@@ -439,7 +478,7 @@
     { src: "hallway.jpg",   cap: "Entrance hall",        cat: "more",    cls: "tall" },
     { src: "utility.jpg",   cap: "Utility cupboard",     cat: "more",    cls: "tall" },
     { src: "view.jpg",      cap: "View from the balcony", cat: "more",   cls: "tall" },
-    { src: "courtyard.jpg", cap: "Residents' courtyard", cat: "more",    cls: "wide tall" },
+    { src: "courtyard.jpg", cap: "Residents' podium garden", cat: "more",    cls: "wide tall" },
     { src: "floorplan.jpg", cap: "Floor plan",           cat: "plan",    cls: "" }
   ];
 
