@@ -1,0 +1,491 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kew Bridge Rise Apartment</title>
+<meta name="description" content="Stylish one-bedroom apartment at Kew Bridge Rise, Brentford TW8. Short let, £750 per week, all bills included.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #f6f2ec;
+    --surface: #fffdf9;
+    --ink: #22251f;
+    --muted: #6b6a62;
+    --line: #e2dbd0;
+    --olive: #3f4a32;
+    --olive-soft: #e7eadf;
+    --brass: #a67c3d;
+    --terracotta: #8e3b34;
+    --radius: 14px;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font: 16px/1.6 "Inter", system-ui, -apple-system, sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+  img { display: block; max-width: 100%; }
+  a { color: inherit; }
+  .wrap { max-width: 1160px; margin: 0 auto; padding: 0 16px; }
+  h1, h2, h3 { font-family: "Fraunces", Georgia, serif; font-weight: 400; letter-spacing: -0.01em; margin: 0; }
+  .eyebrow { font-size: 12px; letter-spacing: .16em; text-transform: uppercase; color: var(--brass); font-weight: 600; }
+
+  /* Nav */
+  nav { position: sticky; top: 0; z-index: 20; background: rgba(246,242,236,.9); backdrop-filter: blur(10px); border-bottom: 1px solid var(--line); }
+  nav .wrap { display: flex; align-items: center; justify-content: space-between; height: 60px; }
+  nav .brand { font-family: "Fraunces", serif; font-size: 19px; text-decoration: none; }
+  nav ul { list-style: none; display: flex; gap: 26px; margin: 0; padding: 0; font-size: 14px; }
+  nav ul a { text-decoration: none; color: var(--muted); }
+  nav ul a:hover { color: var(--ink); }
+  .btn { display: inline-block; background: var(--olive); color: #fff; text-decoration: none; padding: 12px 22px; border-radius: 999px; font-weight: 500; font-size: 15px; border: 0; cursor: pointer; transition: background .2s; }
+  .btn:hover { background: #2e3724; }
+  .btn.small { padding: 8px 16px; font-size: 14px; }
+  .btn.ghost { background: transparent; color: var(--olive); border: 1px solid var(--olive); }
+  .btn.ghost:hover { background: var(--olive-soft); }
+
+  /* Hero */
+  .hero { padding: 48px 0 56px; }
+  .hero-grid { display: grid; grid-template-columns: 1fr 1.15fr; gap: 48px; align-items: center; }
+  .hero h1 { font-size: clamp(38px, 5.4vw, 62px); line-height: 1.04; margin: 14px 0 18px; }
+  .hero h1 em { font-style: italic; color: var(--olive); }
+  .hero p.lede { font-size: 18px; color: var(--muted); max-width: 30em; margin: 0 0 26px; }
+  .address { font-size: 14px; color: var(--muted); display: flex; gap: 8px; align-items: flex-start; margin-bottom: 28px; }
+  .address svg { flex: none; margin-top: 3px; }
+  .price-card { display: flex; align-items: center; gap: 22px; flex-wrap: wrap; background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 18px 22px; }
+  .price { font-family: "Fraunces", serif; font-size: 40px; line-height: 1; }
+  .price small { font-family: "Inter", sans-serif; font-size: 15px; color: var(--muted); margin-left: 4px; }
+  .incl { font-size: 13px; color: var(--olive); background: var(--olive-soft); padding: 6px 12px; border-radius: 999px; font-weight: 500; }
+  .hero-photos { display: grid; grid-template-columns: 1.4fr 1fr; grid-template-rows: 1fr 1fr; gap: 12px; height: 580px; }
+  .hero-photos img { width: 100%; height: 100%; object-fit: cover; border-radius: var(--radius); cursor: zoom-in; }
+  .hero-photos img:first-child { grid-row: span 2; }
+
+  /* Facts strip */
+  .facts { display: grid; grid-template-columns: repeat(5, 1fr); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+  .fact { padding: 22px 12px; text-align: center; border-right: 1px solid var(--line); }
+  .fact:last-child { border-right: 0; }
+  .fact strong { display: block; font-family: "Fraunces", serif; font-weight: 400; font-size: 24px; }
+  .fact span { font-size: 13px; color: var(--muted); }
+
+  section.block { padding: 84px 0; }
+  .section-head { display: flex; justify-content: space-between; align-items: end; gap: 24px; margin-bottom: 36px; flex-wrap: wrap; }
+  .section-head h2 { font-size: clamp(30px, 3.6vw, 42px); margin-top: 8px; }
+  .section-head p { color: var(--muted); max-width: 34em; margin: 0; }
+
+  /* About */
+  .about-grid { display: grid; grid-template-columns: 1.1fr 1fr; gap: 56px; align-items: start; }
+  .about-grid p { margin: 0 0 16px; font-size: 17px; }
+  .about-grid .quote { font-family: "Fraunces", serif; font-size: 26px; line-height: 1.3; color: var(--olive); margin-bottom: 24px; }
+  .included { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 28px; }
+  .included h3 { font-size: 22px; margin-bottom: 4px; }
+  .included > p { color: var(--muted); font-size: 14px !important; margin-bottom: 18px !important; }
+  .bills { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+  .bill { display: flex; align-items: center; gap: 10px; padding: 12px 14px; border-radius: 10px; background: var(--bg); font-size: 15px; font-weight: 500; }
+  .bill svg { color: var(--olive); flex: none; }
+
+  /* Gallery */
+  .gallery { display: grid; grid-template-columns: repeat(4, 1fr); grid-auto-rows: 240px; gap: 12px; grid-auto-flow: dense; }
+  .gallery figure { margin: 0; position: relative; overflow: hidden; border-radius: 12px; cursor: zoom-in; background: var(--line); }
+  .gallery figure.tall { grid-row: span 2; }
+  .gallery figure.wide { grid-column: span 2; }
+  .gallery img { width: 100%; height: 100%; object-fit: cover; transition: transform .5s ease; }
+  .gallery figure:hover img { transform: scale(1.04); }
+  .gallery figcaption { position: absolute; left: 10px; bottom: 10px; background: rgba(255,253,249,.92); color: var(--ink); font-size: 12px; font-weight: 500; padding: 4px 10px; border-radius: 999px; }
+  .filters { display: flex; gap: 8px; flex-wrap: wrap; }
+  .filters button { font: inherit; font-size: 14px; border: 1px solid var(--line); background: var(--surface); color: var(--ink); padding: 7px 14px; border-radius: 999px; cursor: pointer; }
+  .filters button.on { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+
+  /* Features */
+  .features { background: var(--olive); color: #eef0e8; }
+  .features .eyebrow { color: #d9bf8f; }
+  .features .section-head p { color: #c5ccb8; }
+  .feat-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: rgba(255,255,255,.14); border-radius: var(--radius); overflow: hidden; }
+  .feat { background: var(--olive); padding: 28px; }
+  .feat h3 { font-size: 21px; margin-bottom: 12px; color: #fff; }
+  .feat ul { margin: 0; padding: 0; list-style: none; font-size: 15px; color: #d4dacb; }
+  .feat li { padding: 5px 0 5px 18px; position: relative; }
+  .feat li::before { content: ""; position: absolute; left: 0; top: 14px; width: 6px; height: 6px; border-radius: 50%; background: #d9bf8f; }
+
+  /* Floorplan */
+  .plan-grid { display: grid; grid-template-columns: 1.3fr 1fr; gap: 48px; align-items: center; }
+  .plan-img { background: #fff; border: 1px solid var(--line); border-radius: var(--radius); padding: 28px; cursor: zoom-in; }
+  .rooms { list-style: none; padding: 0; margin: 0; }
+  .rooms li { display: flex; justify-content: space-between; gap: 16px; padding: 14px 0; border-bottom: 1px solid var(--line); }
+  .rooms li span:last-child { color: var(--muted); text-align: right; }
+
+  /* Location */
+  .loc-grid { display: grid; grid-template-columns: 1fr 1.2fr; gap: 40px; align-items: stretch; }
+  .places { display: grid; gap: 10px; }
+  .place { display: flex; justify-content: space-between; align-items: center; gap: 16px; padding: 14px 18px; background: var(--surface); border: 1px solid var(--line); border-radius: 12px; }
+  .place b { font-weight: 500; }
+  .place small { display: block; color: var(--muted); font-size: 13px; }
+  .place .t { font-family: "Fraunces", serif; font-size: 18px; white-space: nowrap; color: var(--olive); }
+  .map { border-radius: var(--radius); overflow: hidden; border: 1px solid var(--line); min-height: 420px; background: var(--line); }
+  .map iframe { width: 100%; height: 100%; min-height: 420px; border: 0; display: block; }
+  .note { font-size: 12px; color: var(--muted); margin-top: 12px; }
+
+  /* Contact */
+  .contact { background: var(--surface); border-top: 1px solid var(--line); }
+  .contact-card { display: grid; grid-template-columns: 1.2fr 1fr; gap: 48px; align-items: center; }
+  .contact h2 { font-size: clamp(32px, 4vw, 48px); line-height: 1.1; margin: 10px 0 16px; }
+  .contact p { color: var(--muted); margin: 0 0 24px; }
+  .summary { border: 1px solid var(--line); border-radius: var(--radius); padding: 26px; background: var(--bg); }
+  .summary dl { margin: 0; display: grid; grid-template-columns: auto 1fr; gap: 10px 20px; font-size: 15px; }
+  .summary dt { color: var(--muted); }
+  .summary dd { margin: 0; font-weight: 500; text-align: right; }
+  .actions { display: flex; gap: 12px; flex-wrap: wrap; }
+  footer { padding: 28px 0; font-size: 13px; color: var(--muted); border-top: 1px solid var(--line); }
+
+  /* Lightbox */
+  .lb { position: fixed; inset: 0; background: rgba(18,20,16,.94); display: none; align-items: center; justify-content: center; z-index: 100; }
+  .lb.open { display: flex; }
+  .lb img { max-width: 92vw; max-height: 84vh; border-radius: 8px; object-fit: contain; }
+  .lb .cap { position: absolute; bottom: 22px; left: 0; right: 0; text-align: center; color: #ddd; font-size: 14px; }
+  .lb button { position: absolute; background: rgba(255,255,255,.1); color: #fff; border: 0; width: 48px; height: 48px; border-radius: 50%; font-size: 22px; cursor: pointer; }
+  .lb button:hover { background: rgba(255,255,255,.22); }
+  .lb .close { top: 18px; right: 18px; }
+  .lb .prev { left: 18px; top: 50%; transform: translateY(-50%); }
+  .lb .next { right: 18px; top: 50%; transform: translateY(-50%); }
+
+  @media (max-width: 920px) {
+    nav ul { display: none; }
+    .hero-grid, .about-grid, .plan-grid, .loc-grid, .contact-card { grid-template-columns: 1fr; gap: 32px; }
+    .hero-photos { height: 420px; }
+    .facts { grid-template-columns: repeat(3, 1fr); }
+    .fact:nth-child(3) { border-right: 0; }
+    .fact:nth-child(n+4) { border-top: 1px solid var(--line); }
+    .gallery { grid-template-columns: repeat(2, 1fr); grid-auto-rows: 200px; }
+    .feat-grid { grid-template-columns: 1fr; }
+    section.block { padding: 60px 0; }
+  }
+  @media (max-width: 520px) {
+    .hero { padding-top: 28px; }
+    .hero-photos { height: 340px; gap: 8px; }
+    .facts { grid-template-columns: repeat(2, 1fr); }
+    .fact { border-right: 1px solid var(--line) !important; border-top: 1px solid var(--line); }
+    .fact:nth-child(2n) { border-right: 0 !important; }
+    .fact:nth-child(-n+2) { border-top: 0; }
+    .fact:last-child { grid-column: span 2; border-right: 0 !important; }
+    .gallery { grid-auto-rows: 160px; gap: 8px; }
+    .gallery figure.wide { grid-column: span 2; }
+    .bills { grid-template-columns: 1fr; }
+    .lb .prev, .lb .next { top: auto; bottom: 60px; transform: none; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <a class="brand" href="#top">Kew Bridge Rise</a>
+    <ul>
+      <li><a href="#about">The flat</a></li>
+      <li><a href="#gallery">Photos</a></li>
+      <li><a href="#floorplan">Floor plan</a></li>
+      <li><a href="#location">Location</a></li>
+    </ul>
+    <a class="btn small" href="#contact">Enquire</a>
+  </div>
+</nav>
+
+<header class="hero" id="top">
+  <div class="wrap hero-grid">
+    <div>
+      <div class="eyebrow">Short let · Brentford, West London</div>
+      <h1>A calm, <em>beautifully furnished</em> one-bed by Kew Bridge</h1>
+      <p class="lede">A bright apartment in a modern building with a balcony, a fully fitted kitchen and a hotel-style bedroom. Every bill is included, so you can just arrive and settle in.</p>
+      <div class="address">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s7-7.1 7-12.5A7 7 0 0 0 5 9.5C5 14.9 12 22 12 22z"/><circle cx="12" cy="9.5" r="2.5"/></svg>
+        <span>Colmar House, Kew Bridge Rise<br>7 Capital Interchange Way, Brentford, London TW8 0XS</span>
+      </div>
+      <div class="price-card">
+        <div class="price">£750<small>/ week</small></div>
+        <span class="incl">All bills included</span>
+        <a class="btn" href="#contact">Check availability</a>
+      </div>
+    </div>
+    <div class="hero-photos">
+      <img src="images/living-1.jpg" alt="Open-plan living and dining room with balcony doors" data-i="0">
+      <img src="images/bedroom-1.jpg" alt="Double bedroom with balcony access" data-i="7">
+      <img src="images/kitchen-1.jpg" alt="Modern fitted kitchen" data-i="5">
+    </div>
+  </div>
+</header>
+
+<div class="wrap">
+  <div class="facts">
+    <div class="fact"><strong>1</strong><span>Double bedroom</span></div>
+    <div class="fact"><strong>1</strong><span>Bathroom</span></div>
+    <div class="fact"><strong>2</strong><span>Guests</span></div>
+    <div class="fact"><strong>Private</strong><span>Balcony</span></div>
+    <div class="fact"><strong>Fully</strong><span>Furnished</span></div>
+  </div>
+</div>
+
+<section class="block" id="about">
+  <div class="wrap about-grid">
+    <div>
+      <div class="eyebrow">The apartment</div>
+      <p class="quote" style="margin-top:12px">Olive velvet, warm brass, soft light, and views over the rooftops of West London.</p>
+      <p>This one-bedroom apartment has been furnished with care. The open-plan living area has a deep velvet corner sofa, a marble-effect dining table with wishbone chairs for four, and full-height glass doors that open onto a private balcony.</p>
+      <p>The kitchen comes with an integrated oven, microwave and induction hob, plus a coffee machine and everything you need to cook properly. The double bedroom has a boucle arched headboard, full-width mirrored wardrobes and its own door to the balcony.</p>
+      <p>The building is newly built and has a landscaped residents' courtyard garden. It is a few minutes' walk from Kew Bridge station, Kew Gardens and the Thames.</p>
+    </div>
+    <aside class="included">
+      <h3>One weekly price. No extra bills.</h3>
+      <p>£750 per week covers everything below. No meters to top up and no accounts to set up.</p>
+      <div class="bills">
+        <div class="bill"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 21h18M5 21V8l7-5 7 5v13M9 21v-6h6v6"/></svg>Council tax</div>
+        <div class="bill"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M13 2 4 14h7l-1 8 9-12h-7l1-8z"/></svg>Electricity</div>
+        <div class="bill"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 22c4 0 7-3 7-7 0-4-3-6-4-10-2 2-3 4-3 6-1-1-2-2-2-4-2 2-5 5-5 8 0 4 3 7 7 7z"/></svg>Gas &amp; heating</div>
+        <div class="bill"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M2 9a15 15 0 0 1 20 0M5 12.5a10 10 0 0 1 14 0M8.5 16a5 5 0 0 1 7 0"/><circle cx="12" cy="19.5" r="1"/></svg>Internet / Wi-Fi</div>
+      </div>
+    </aside>
+  </div>
+</section>
+
+<section class="block" id="gallery" style="padding-top:0">
+  <div class="wrap">
+    <div class="section-head">
+      <div>
+        <div class="eyebrow">Photos</div>
+        <h2>Take a look around</h2>
+      </div>
+      <div class="filters" role="group" aria-label="Filter photos">
+        <button class="on" data-f="all">All</button>
+        <button data-f="living">Living</button>
+        <button data-f="kitchen">Kitchen</button>
+        <button data-f="bedroom">Bedroom</button>
+        <button data-f="more">Bath &amp; more</button>
+      </div>
+    </div>
+    <div class="gallery" id="grid"></div>
+  </div>
+</section>
+
+<section class="block features">
+  <div class="wrap">
+    <div class="section-head">
+      <div>
+        <div class="eyebrow">What's included</div>
+        <h2>Everything you need for a week, a month, or more</h2>
+      </div>
+      <p>Bring your suitcase. Everything else is here.</p>
+    </div>
+    <div class="feat-grid">
+      <div class="feat">
+        <h3>Living &amp; dining</h3>
+        <ul>
+          <li>Velvet corner sofa with chaise</li>
+          <li>TV and media unit</li>
+          <li>Round dining table, seats 4</li>
+          <li>Floor-to-ceiling balcony doors</li>
+          <li>Wood-effect flooring throughout</li>
+        </ul>
+      </div>
+      <div class="feat">
+        <h3>Kitchen</h3>
+        <ul>
+          <li>Integrated oven and microwave</li>
+          <li>Induction hob</li>
+          <li>Integrated fridge-freezer</li>
+          <li>Coffee machine</li>
+          <li>Cookware, crockery and utensils</li>
+        </ul>
+      </div>
+      <div class="feat">
+        <h3>Bedroom</h3>
+        <ul>
+          <li>Double bed with boucle headboard</li>
+          <li>Mirrored built-in wardrobes</li>
+          <li>Six-drawer chest and bedside tables</li>
+          <li>Full-length lined curtains</li>
+          <li>Direct balcony access</li>
+        </ul>
+      </div>
+      <div class="feat">
+        <h3>Bathroom</h3>
+        <ul>
+          <li>Bath with overhead shower</li>
+          <li>Heated towel rail</li>
+          <li>Mirrored storage cabinets</li>
+          <li>Matte-black modern fittings</li>
+        </ul>
+      </div>
+      <div class="feat">
+        <h3>Utility &amp; comfort</h3>
+        <ul>
+          <li>Washing machine</li>
+          <li>Vacuum, iron and ironing board</li>
+          <li>Separate utility cupboard</li>
+          <li>Mechanical ventilation system</li>
+        </ul>
+      </div>
+      <div class="feat">
+        <h3>The building</h3>
+        <ul>
+          <li>Newly built development</li>
+          <li>Landscaped residents' courtyard</li>
+          <li>Views across Brentford</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="block" id="floorplan">
+  <div class="wrap plan-grid">
+    <div class="plan-img" data-i="16"><img src="images/floorplan.jpg" alt="Floor plan of the one-bedroom apartment"></div>
+    <div>
+      <div class="eyebrow">Floor plan</div>
+      <h2 style="font-size:clamp(30px,3.6vw,42px);margin:8px 0 20px">A practical layout</h2>
+      <ul class="rooms">
+        <li><span>Kitchen / Dining / Living</span><span>Open plan, balcony doors</span></li>
+        <li><span>Bedroom</span><span>Double, built-in wardrobe</span></li>
+        <li><span>Bathroom</span><span>Bath with shower</span></li>
+        <li><span>Balcony</span><span>Off living room &amp; bedroom</span></li>
+        <li><span>Hall</span><span>Utility store with washing machine</span></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="block" id="location" style="padding-top:0">
+  <div class="wrap">
+    <div class="section-head">
+      <div>
+        <div class="eyebrow">Location</div>
+        <h2>Between Kew and the city</h2>
+      </div>
+      <p>The apartment is in Brentford, by Kew Bridge. There are quick rail and Tube links into central London, and Kew Gardens and the riverside walks are on your doorstep.</p>
+    </div>
+    <div class="loc-grid">
+      <div>
+        <div class="places">
+          <div class="place"><div><b>Kew Bridge station</b><small>South Western Railway to Waterloo</small></div><span class="t">~3 min walk</span></div>
+          <div class="place"><div><b>Gunnersbury station</b><small>District line &amp; Overground</small></div><span class="t">~15 min walk</span></div>
+          <div class="place"><div><b>Kew Gardens</b><small>Royal Botanic Gardens, UNESCO site</small></div><span class="t">~15 min walk</span></div>
+          <div class="place"><div><b>Thames riverside &amp; Strand on the Green</b><small>Riverside pubs and walks</small></div><span class="t">~10 min walk</span></div>
+          <div class="place"><div><b>Gtech Community Stadium</b><small>Brentford FC</small></div><span class="t">~2 min walk</span></div>
+          <div class="place"><div><b>Heathrow Airport</b><small>By car or taxi</small></div><span class="t">~25 min</span></div>
+        </div>
+        <p class="note">Times are approximate.</p>
+      </div>
+      <div class="map">
+        <iframe title="Map of TW8 0XS" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+          src="https://maps.google.com/maps?q=7%20Capital%20Interchange%20Way%2C%20Brentford%20TW8%200XS&z=15&output=embed"></iframe>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="block contact" id="contact">
+  <div class="wrap contact-card">
+    <div>
+      <div class="eyebrow">Book your stay</div>
+      <h2>Ready to move in?</h2>
+      <p>Get in touch to check dates, ask questions or arrange a viewing.</p>
+      <!-- EDIT: replace the placeholder email and phone below with your contact details -->
+      <div class="actions">
+        <a class="btn" href="mailto:you@example.com?subject=Kew%20Bridge%20Rise%20short%20let%20enquiry">Email us</a>
+        <a class="btn ghost" href="https://wa.me/440000000000">WhatsApp</a>
+      </div>
+    </div>
+    <div class="summary">
+      <dl>
+        <dt>Rent</dt><dd>£750 per week</dd>
+        <dt>Bills</dt><dd>All included</dd>
+        <dt>Type</dt><dd>1-bed apartment, short let</dd>
+        <dt>Furnishing</dt><dd>Fully furnished</dd>
+        <dt>Outdoor</dt><dd>Private balcony + courtyard</dd>
+        <dt>Postcode</dt><dd>TW8 0XS</dd>
+      </dl>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">Colmar House · Kew Bridge Rise · 7 Capital Interchange Way, Brentford, London TW8 0XS</div>
+</footer>
+
+<div class="lb" id="lb" aria-hidden="true">
+  <button class="close" aria-label="Close">✕</button>
+  <button class="prev" aria-label="Previous">‹</button>
+  <img alt="">
+  <button class="next" aria-label="Next">›</button>
+  <div class="cap"></div>
+</div>
+
+<script>
+  const photos = [
+    { src: "living-1.jpg",  cap: "Living & dining",      cat: "living",  cls: "wide tall" },
+    { src: "living-2.jpg",  cap: "Living room",          cat: "living",  cls: "tall" },
+    { src: "dining.jpg",    cap: "Dining area",          cat: "living",  cls: "tall" },
+    { src: "living-3.jpg",  cap: "Looking to the kitchen", cat: "living", cls: "tall" },
+    { src: "living-4.jpg",  cap: "Open-plan living",     cat: "living",  cls: "tall" },
+    { src: "kitchen-1.jpg", cap: "Kitchen & dining",     cat: "kitchen", cls: "tall" },
+    { src: "kitchen-2.jpg", cap: "Fitted kitchen",       cat: "kitchen", cls: "tall" },
+    { src: "bedroom-1.jpg", cap: "Bedroom",              cat: "bedroom", cls: "tall" },
+    { src: "bedroom-2.jpg", cap: "Bedroom & wardrobes",  cat: "bedroom", cls: "tall" },
+    { src: "bedroom-3.jpg", cap: "Mirrored wardrobes",   cat: "bedroom", cls: "tall" },
+    { src: "bedroom-4.jpg", cap: "Chest of drawers",     cat: "bedroom", cls: "tall" },
+    { src: "bathroom.jpg",  cap: "Bathroom",             cat: "more",    cls: "tall" },
+    { src: "hallway.jpg",   cap: "Entrance hall",        cat: "more",    cls: "tall" },
+    { src: "utility.jpg",   cap: "Utility cupboard",     cat: "more",    cls: "tall" },
+    { src: "view.jpg",      cap: "View from the balcony", cat: "more",   cls: "tall" },
+    { src: "courtyard.jpg", cap: "Residents' courtyard", cat: "more",    cls: "wide tall" },
+    { src: "floorplan.jpg", cap: "Floor plan",           cat: "plan",    cls: "" }
+  ];
+
+  const grid = document.getElementById("grid");
+  let visible = [];
+
+  function render(filter) {
+    grid.innerHTML = "";
+    visible = photos.map((p, i) => ({ ...p, i })).filter(p => p.cat !== "plan" && (filter === "all" || p.cat === filter));
+    visible.forEach(p => {
+      const f = document.createElement("figure");
+      f.className = filter === "all" ? p.cls : "tall";
+      f.innerHTML = `<img src="images/${p.src}" alt="${p.cap}" loading="lazy"><figcaption>${p.cap}</figcaption>`;
+      f.onclick = () => open(p.i, visible.map(v => v.i));
+      grid.appendChild(f);
+    });
+  }
+
+  document.querySelectorAll(".filters button").forEach(b => b.onclick = () => {
+    document.querySelectorAll(".filters button").forEach(x => x.classList.remove("on"));
+    b.classList.add("on");
+    render(b.dataset.f);
+  });
+  render("all");
+
+  // Lightbox
+  const lb = document.getElementById("lb"), lbImg = lb.querySelector("img"), lbCap = lb.querySelector(".cap");
+  let seq = [], pos = 0;
+  function show() { const p = photos[seq[pos]]; lbImg.src = "images/" + p.src; lbImg.alt = p.cap; lbCap.textContent = `${p.cap} · ${pos + 1} / ${seq.length}`; }
+  function open(i, list) { seq = list || photos.map((_, k) => k); pos = Math.max(0, seq.indexOf(i)); show(); lb.classList.add("open"); lb.setAttribute("aria-hidden", "false"); }
+  function close() { lb.classList.remove("open"); lb.setAttribute("aria-hidden", "true"); }
+  function step(d) { pos = (pos + d + seq.length) % seq.length; show(); }
+  lb.querySelector(".close").onclick = close;
+  lb.querySelector(".prev").onclick = e => { e.stopPropagation(); step(-1); };
+  lb.querySelector(".next").onclick = e => { e.stopPropagation(); step(1); };
+  lb.onclick = e => { if (e.target === lb) close(); };
+  document.addEventListener("keydown", e => {
+    if (!lb.classList.contains("open")) return;
+    if (e.key === "Escape") close();
+    if (e.key === "ArrowLeft") step(-1);
+    if (e.key === "ArrowRight") step(1);
+  });
+  let tx = null;
+  lb.addEventListener("touchstart", e => tx = e.touches[0].clientX, { passive: true });
+  lb.addEventListener("touchend", e => { if (tx === null) return; const dx = e.changedTouches[0].clientX - tx; if (Math.abs(dx) > 40) step(dx < 0 ? 1 : -1); tx = null; });
+
+  document.querySelectorAll("[data-i]").forEach(el => el.addEventListener("click", () => open(+el.dataset.i)));
+</script>
+</body>
+</html>
